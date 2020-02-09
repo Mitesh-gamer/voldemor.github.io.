@@ -1,0 +1,450 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@keyframes transitionIn{
+from{
+  opacity: 0;
+  
+  transform:translateY(-10px);
+  
+}
+to{
+  opacity: 1;
+  transform:translateY(0px);
+}
+
+}
+@font-face {
+   font-family: myFirstFont;
+   src: url(Monesque-80EB.otf);
+}
+
+body {
+  background: white;
+  font-size: 12px;
+   font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.menu_head ul{
+  display:inline-flex;
+  margin: 10px;
+  }
+
+.menu_head ul li{
+  list-style: none;
+  margin: 0px 30px;
+  color: #33cc33;
+  cursor:pointer; 
+  font-size: 20px;
+}
+.head{
+    letter-spacing: 2px;
+  font-family: myFirstFont;
+  font-size: 25px;
+  position: fixed;
+  z-index: 300;
+  top: 35px;
+  left: 5%;
+  color: #33cc33;
+
+}
+.head:hover{
+  animation: transitionInon 0.75s;
+          box-shadow:
+                1px 1px #53a7ea,
+                2px 2px #53a7ea,
+                3px 3px #53a7ea;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+}
+
+.container {
+  width: 55%;
+  height: 70%;
+  margin: auto;
+  padding: 10px;
+  left: 1px;
+  top: 10%;
+  position: absolute;
+}
+
+.screen {
+left: 1px;
+
+  background: #fff;
+  border-radius: 15px;
+}
+
+.screen:after {
+  content: '';
+  top: 0;
+  left: 1px;
+  bottom: 0;
+  border-radius: 15px;
+  z-index: -1;
+}
+.screen-body-item {
+
+  padding: 50px;
+}
+
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+   font-family: 'Original Surfer', cursive;
+}
+.app-title #se1{
+  color: #000;
+  font-size: 36px;
+}
+.app-title #se2{
+  color: #A6A6a6;
+  font-size: 25px;
+}
+
+.app-contact {
+  margin-top: auto;
+  font-size: 8px;
+  color: #A6A6a6;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.message {
+  margin-top: 40px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #A6A6a6;
+  font-size: 20px;
+  
+  outline: none;
+  transition: border-color .2s;
+  font-family: 'Original Surfer', cursive;
+
+  border-bottom-color: #ddd;
+}
+
+.app-form-control::placeholder {
+  color: #A6A6a6;
+  padding: 100%;
+  opacity: 0.5;
+  direction: rtl;
+}
+
+.app-form-control:focus {
+  border-bottom-color: #000;
+ z-index: 100;
+}
+
+.app-form-button {
+  background: none;
+  border: none;
+  color: #A6A6a6;
+  font-size: 25px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Original Surfer', cursive;
+}   
+
+.app-form-button:hover {
+  color: #ff00ff;
+   border-bottom-color: #000;
+}
+
+
+
+@media screen and (max-width: 520px) {
+  .screen-body {
+    flex-direction: column;
+  }
+
+  .screen-body-item.left {
+    margin-bottom: 30px;
+  }
+
+  .app-title {
+    flex-direction: row;
+  }
+
+  .app-title span {
+    margin-right: 12px;
+  }
+
+  .app-title:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .screen-body {
+    padding: 40px;
+  }
+
+  .screen-body-item {
+    padding: 0;
+  }
+}
+
+
+
+
+#menuToggle
+{
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 50px;
+   
+  z-index: 200;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 1; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: fixed;
+  width: 80%;
+  padding-top: 55px;
+  padding-bottom: 20px;
+  left: 100px;
+  right: 0px;
+    
+  background:white;
+
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(0%, -100%);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+#menu li
+{ 
+  direction: rtl;
+  display: flex;
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+#menu li a{
+  color: #000;
+  font-size: 30px;
+  cursor:pointer; 
+background: white;
+  text-decoration: none;
+  text-decoration-line: none; 
+width:200px;
+height:50px;
+float: right;
+overflow:hidden;
+float: right;
+line-height:50px;
+text-align:center;
+
+}
+
+#menu li a:hover {
+  color: blue;
+ background: #f2f2f2;
+  text-decoration: none;
+  text-decoration-line: none;
+ 
+
+}
+
+
+ #menu  .social-contac{
+  display: inline-flex;
+  margin-bottom:10px; 
+list-style: none;
+font-size: 15px;
+
+}
+ #menu  .social-contac a{
+    margin-left: 0px;
+padding-right: 10px;
+ text-transform: uppercase;
+ text-decoration: none;
+color: black;
+width:150px;
+height:50px;
+font-size: 15px;
+float: left;
+overflow:hidden;
+
+line-height:50px;
+text-align:center;
+color:rgba(0,0,0, 0) !important; transition: all .15s ease;
+  text-shadow:0 0 0  black, 0 45px 0 blue ; 
+
+
+}
+ #menu  .social-contac a:hover{
+ color: #0000FF;
+ background: #f2f2f2;
+  text-decoration: none;
+  text-decoration-line: none;
+ text-shadow: 0 -45px 0 black, 0 0 0 blue ;
+}
+
+#menuToggle input:checked ~ ul
+{  right: 100px;
+  transform: scale(1.0, 1.0);
+  opacity:1;
+   box-shadow:  00px 00px 10px 0vw #b4b4b4, 0px 0px 10px 0vh #b4b4b4;
+  z-index: 300;
+}
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 70px;
+  height: 70px;
+  line-height: 0;
+}
+
+.loading span {
+  display: inline-block;
+  width: calc(100% / 3 - 10px);
+  height: calc(100% / 3 - 10px);
+  margin: 5px;
+  background: #222;
+  border-radius: 2px;
+  animation: loading 2.5s infinite;
+}
+
+.loading span:nth-of-type(1) { animation-delay: 0.1s }
+.loading span:nth-of-type(2) { animation-delay: 0.3s }
+.loading span:nth-of-type(3) { animation-delay: 0.5s }
+.loading span:nth-of-type(4) { animation-delay: 0.3s }
+.loading span:nth-of-type(5) { animation-delay: 0.5s }
+.loading span:nth-of-type(6) { animation-delay: 0.7s }
+.loading span:nth-of-type(7) { animation-delay: 0.5s }
+.loading span:nth-of-type(8) { animation-delay: 0.7s }
+.loading span:nth-of-type(9) { animation-delay: 0.9s }
+
+@keyframes loading {
+  0 {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.6, 1.6);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
